@@ -31,7 +31,7 @@ function renderProducts() {
   const grid = document.getElementById('productsGrid');
   grid.innerHTML = PRODUCTS.map(p => `
     <div class="product-card">
-      <img class="product-image" src=${p.img} alt="${p.name}" loading="lazy"/>
+      <img class="product-image" src="${p.img}" alt="${p.name}" loading="lazy"/>
       <div class="product-name">${p.name}</div>
       <div class="product-desc">${p.desc}</div>
       <div class="product-price">${formatPrice(p.price)}</div>
