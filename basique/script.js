@@ -1,12 +1,12 @@
 // ---------- Données produits (démo) ----------
 const PRODUCTS = [
-  { id: 1, name: "Forêt Chocolat", desc: "Génoise chocolat intense, copeaux et cœur gourmand", price: 9000, img: "images/1 Foret chocolat.jpg" },
-  { id: 2, name: "Fraisier aux Fraises", desc: "Crème légère et fraises fraîches sur biscuit moelleux", price: 8500, img: "images/2 Fraisier aux Fraises.jpg" },
+  { id: 1, name: "Forêt Chocolat", desc: "Génoise chocolat intense, copeaux et cœur gourmand", price: 9000, img: "images/Foretchocolat.jpg" },
+  { id: 2, name: "Fraisier aux Fraises", desc: "Crème légère et fraises fraîches sur biscuit moelleux", price: 8500, img: "images/FraisierauxFraises.jpg" },
   { id: 3, name: "Trianon Praliné", desc: "Craquant praliné, mousse chocolat et biscuit noisette", price: 9500,
   img: "images/TrianonPraline.jpg" },
-  { id: 4, name: "Tarte Acidulée", desc: "Pâte sablée et garniture aux fruits acidulés de saison", price: 5500, img: "images/8 Tarte acidulee.jpg" },
-  { id: 5, name: "Moelleux Baobab", desc: "Gâteau moelleux à la saveur unique du fruit de baobab", price: 4000, img: "images/9 Moelleux Baobab.jpg" },
-  { id: 6, name: "Charlotte Royale", desc: "Biscuits cuillère, mousse onctueuse et finition dorée", price: 12000, img: "images/10 Charlotte Royale.jpg" },
+  { id: 4, name: "Tarte Acidulée", desc: "Pâte sablée et garniture aux fruits acidulés de saison", price: 5500, img: "images/Tarteacidulee.jpg" },
+  { id: 5, name: "Moelleux Baobab", desc: "Gâteau moelleux à la saveur unique du fruit de baobab", price: 4000, img: "images/MoelleuxBaobab.jpg" },
+  { id: 6, name: "Charlotte Royale", desc: "Biscuits cuillère, mousse onctueuse et finition dorée", price: 12000, img: "images/CharlotteRoyale.jpg" },
 ];
 
 let cart = []; // [{id, qty}]
