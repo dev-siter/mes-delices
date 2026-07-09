@@ -1,6 +1,6 @@
 // ---------- Données produits (démo) ----------
 const PRODUCTS = [
-  { id: 1, name: "Forêt Chocolat", desc: "Génoise chocolat intense, copeaux et cœur gourmand", price: 9000, img: "mes-delices/images/1 Foret chocolat.jpg" },
+  { id: 1, name: "Forêt Chocolat", desc: "Génoise chocolat intense, copeaux et cœur gourmand", price: 9000, img: "/mes-delices/images/1 Foret chocolat.jpg" },
   { id: 2, name: "Fraisier aux Fraises", desc: "Crème légère et fraises fraîches sur biscuit moelleux", price: 8500, img: "../images/2 Fraisier aux Fraises.jpg" },
   { id: 3, name: "Trianon Praliné", desc: "Craquant praliné, mousse chocolat et biscuit noisette", price: 9500,
   img: "/images/TrianonPraline.jpg" },
