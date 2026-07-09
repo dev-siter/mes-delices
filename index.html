@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Délices — Haute Pâtisserie</title>
+  
+  <!-- Polices Google : Playfair Display pour les titres (luxe) et Plus Jakarta Sans pour les textes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/svg+xml" href="/max/logo.svg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- VARIABLES & THÈME (LUXE SOBRE) ---------- */
+    :root {
+      --pink: #D4547A;
+      --pink-dark: #9B2F52;
+      --pink-light: #FFF0F3;
+      --gold: #C59B27;
+      --gold-light: #FAF5F0;
+      --dark: #1C191A;
+      --text: #2E2A2C;
+      --text-light: #7A7378;
+      --bg: #FCFAFA;
+      --white: #ffffff;
+      --border: #EFE3E7;
+      --radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --shadow: 0 4px 20px rgba(155, 47, 82, 0.05);
+    }
+
+    /* ---------- RESET & BASES ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Playfair Display', serif;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+      transition: var(--transition);
+    }
+
+    /* ---------- NAV BAR / TOP BAR ---------- */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+    }
+
+    .top-bar-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-logo-container {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--pink-light);
+      border: 1px solid var(--pink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px;
+    }
+
+    .brand-logo-container svg {
+      width: 100%;
+      height: 100%;
+      color: var(--pink);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--pink-dark);
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* Actions Navigation */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .desktop-nav {
+      display: none;
+      gap: 24px;
+    }
+
+    .nav-link {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-light);
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--pink-dark);
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--pink);
+      transition: var(--transition);
+    }
+
+    .nav-link:hover::after, .nav-link.active::after {
+      width: 100%;
+    }
+
+    .cart-btn {
+      position: relative;
+      background: var(--pink-light);
+      border: 1px solid rgba(212, 84, 122, 0.3);
+      color: var(--pink-dark);
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(214, 84, 122, 0.1);
+    }
+
+    .cart-btn:hover {
+      background: var(--pink);
+      color: var(--white);
+      transform: scale(1.05);
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.7rem;
+      font-weight: 700;
+      min-width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 4px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    }
+
+    .burger-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      color: var(--dark);
+    }
+
+    /* ---------- MENU BURGER DESCENT ---------- */
+    .mobile-menu {
+      display: none;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px;
+      flex-direction: column;
+      gap: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .mobile-menu button {
+      text-align: left;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 10px 12px;
+      border-radius: 8px;
+      width: 100%;
+    }
+
+    .mobile-menu button:hover {
+      background: var(--pink-light);
+      color: var(--pink-dark);
+    }
+
+    /* ---------- CONTENU SPA (ONGLETS) ---------- */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---------- HERO ACCUEIL ---------- */
+    .hero-section {
+      background: linear-gradient(180deg, var(--white) 0%, var(--pink-light) 100%);
+      text-align: center;
+      padding: 48px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-container {
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    .hero-subtitle {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .hero-title span {
+      color: var(--pink-dark);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      font-weight: 300;
+      max-width: 550px;
+      margin: 0 auto 24px;
+    }
+
+    .hero-divider {
+      width: 60px;
+      height: 2px;
+      background: var(--gold);
+      margin: 0 auto 24px;
+    }
+
+    .hero-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pink-dark);
+      color: var(--white);
+      font-weight: 600;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 12px 28px;
+      border-radius: 30px;
+      box-shadow: 0 4px 15px rgba(155, 47, 82, 0.2);
+    }
+
+    .hero-btn:hover {
+      background: var(--pink);
+      transform: translateY(-2px);
+    }
+
+    /* ---------- SECTION TITLES ---------- */
+    .section-header {
+      max-width: 1100px;
+      margin: 40px auto 24px;
+      padding: 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-light);
+    }
+
+    /* ---------- GRILLE PRODUITS ---------- */
+    .products-container {
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 16px;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: var(--transition);
+      box-shadow: var(--shadow);
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(155, 47, 82, 0.1);
+    }
+
+    .product-img-wrapper {
+      position: relative;
+      height: 200px;
+      background: var(--pink-light);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-badge-price {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink-dark);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+    }
+
+    .product-info {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .product-name-title {
+      font-size: 1.15rem;
+      margin-bottom: 8px;
+    }
+
+    .product-desc-text {
+      color: var(--text-light);
+      font-size: 0.85rem;
+      font-weight: 300;
+      margin-bottom: 18px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .product-actions-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .qty-selector {
+      display: flex;
+      align-items: center;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      background: var(--bg);
+      padding: 2px;
+    }
+
+    .qty-selector button {
+      width: 28px;
+      height: 28px;
+      background: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--dark);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .qty-selector button:hover {
+      background: var(--pink-light);
+      color: var(--pink-dark);
+    }
+
+    .qty-selector input {
+      width: 32px;
+      text-align: center;
+      border: none;
+      background: transparent;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .add-to-cart-btn {
+      flex-grow: 1;
+      background: var(--pink);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 10px 14px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .add-to-cart-btn:hover {
+      background: var(--pink-dark);
+    }
+
+    /* ---------- PAGE INFOS ---------- */
+    .infos-container {
+      max-width: 900px;
+      margin: 40px auto 60px;
+      padding: 0 16px;
+    }
+
+    .infos-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+
+    .info-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      font-size: 1.35rem;
+      color: var(--pink-dark);
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 8px;
+    }
+
+    .info-details {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .info-item {
+      display: flex;
+      gap: 16px;
+    }
+
+    .info-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .info-item h4 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 2px;
+    }
+
+    .info-item p {
+      font-size: 0.9rem;
+      font-weight: 400;
+    }
+
+    .social-links {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .social-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-light);
+    }
+
+    .social-btn:hover {
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      border-color: var(--pink);
+    }
+
+    .hours-list {
+      list-style: none;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      font-size: 0.9rem;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+
+    .hours-list span.day {
+      font-weight: 600;
+    }
+
+    .hours-list span.time {
+      color: var(--text-light);
+    }
+
+    .hours-list li.highlight span.time {
+      color: var(--pink-dark);
+      font-weight: 700;
+    }
+
+    /* ---------- MODAL TIROIR PANIER & COMMANDE ---------- */
+    .cart-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      display: none;
+    }
+
+    .cart-modal.open {
+      display: block;
+    }
+
+    .modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28, 25, 26, 0.5);
+      backdrop-filter: blur(2px);
+    }
+
+    .modal-drawer {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      max-width: 440px;
+      background: var(--white);
+      box-shadow: -5px 0 30px rgba(0,0,0,0.15);
+      display: flex;
+      flex-direction: column;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(100%); }
+      to { transform: translateX(0); }
+    }
+
+    .modal-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .modal-title-wrapper .spark {
+      color: var(--gold);
+    }
+
+    .modal-title-wrapper h2 {
+      font-size: 1.3rem;
+    }
+
+    .close-modal-btn {
+      font-size: 1.5rem;
+      color: var(--text-light);
+      padding: 4px;
+    }
+
+    .close-modal-btn:hover {
+      color: var(--pink);
+    }
+
+    .modal-body {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    /* ÉTATS MODAL */
+    .modal-state {
+      display: none;
+    }
+
+    .modal-state.active {
+      display: block;
+    }
+
+    /* Panier Vide */
+    .cart-empty-state {
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    .cart-empty-icon {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .cart-empty-state h3 {
+      font-size: 1.15rem;
+      margin-bottom: 6px;
+    }
+
+    .cart-empty-state p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      margin-bottom: 20px;
+    }
+
+    .cart-empty-btn {
+      background: var(--pink-dark);
+      color: var(--white);
+      padding: 10px 20px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Liste Panier */
+    .cart-items-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .cart-item-row {
+      display: flex;
+      gap: 12px;
+      background: var(--gold-light);
+      border: 1px solid rgba(197, 155, 39, 0.15);
+      border-radius: var(--radius);
+      padding: 12px;
+      position: relative;
+    }
+
+    .cart-item-img {
+      width: 64px;
+      height: 64px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .cart-item-details {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .cart-item-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      padding-right: 20px;
+    }
+
+    .cart-item-price {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink-dark);
+    }
+
+    .cart-item-control-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 6px;
+    }
+
+    .cart-item-subtotal {
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .remove-item-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      color: var(--text-light);
+      font-size: 0.85rem;
+    }
+
+    .remove-item-btn:hover {
+      color: var(--pink);
+    }
+
+    /* Formulaire de Commande */
+    .order-total-banner {
+      background: var(--pink-light);
+      border: 1px solid rgba(214, 84, 122, 0.2);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--pink-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .checkout-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-row-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .form-group-custom {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .form-group-custom label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+    }
+
+    .form-group-custom label span {
+      color: var(--pink);
+    }
+
+    .form-group-custom input,
+    .form-group-custom textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: var(--bg);
+      transition: var(--transition);
+    }
+
+    .form-group-custom input:focus,
+    .form-group-custom textarea:focus {
+      outline: none;
+      border-color: var(--pink);
+      background: var(--white);
+    }
+
+    .form-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .form-back-btn {
+      width: 35%;
+      border: 1px solid var(--pink);
+      color: var(--pink-dark);
+      border-radius: 20px;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .form-back-btn:hover {
+      background: var(--pink-light);
+    }
+
+    .form-submit-btn {
+      width: 65%;
+      background: var(--pink-dark);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    .form-submit-btn:hover {
+      background: var(--pink);
+    }
+
+    /* Succès */
+    .success-state {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      background: #E8F5E9;
+      border: 2px solid #4CAF50;
+      color: #2E7D32;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .success-title {
+      font-size: 1.5rem;
+      margin-bottom: 8px;
+    }
+
+    .success-desc {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 24px;
+    }
+
+    .success-receipt {
+      background: var(--pink-light);
+      border-radius: var(--radius);
+      padding: 16px;
+      text-align: left;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .receipt-line span {
+      display: block;
+    }
+
+    .receipt-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    .receipt-value {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .success-close-btn {
+      width: 100%;
+      background: var(--pink-dark);
+      color: var(--white);
+      padding: 12px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* Bas de Modal (Total & Validation) */
+    .modal-footer {
+      border-top: 1px solid var(--border);
+      padding: 20px;
+      background: var(--pink-light);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-total-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-total-row span {
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+
+    .footer-total-row strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      color: var(--pink-dark);
+    }
+
+    .validate-order-btn {
+      background: var(--pink-dark);
+      color: var(--white);
+      border-radius: 20px;
+      padding: 14px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .validate-order-btn:hover {
+      background: var(--pink);
+    }
+
+    /* ---------- TOAST NOTIFICATIONS ---------- */
+    .toast-notif {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--dark);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      font-size: 0.8rem;
+      font-weight: 500;
+      z-index: 1100;
+      transform: translateY(100px);
+      opacity: 0;
+      pointer-events: none;
+      transition: var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .toast-notif.show {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-notif .spark {
+      color: var(--gold);
+    }
+
+    /* ---------- FOOTER ---------- */
+    .main-footer {
+      background: var(--dark);
+      color: var(--white);
+      padding: 40px 16px 20px;
+      border-top: 3px solid var(--gold);
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .footer-logo {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+    }
+
+    .footer-logo svg {
+      width: 18px;
+      height: 18px;
+      color: var(--gold);
+    }
+
+    .footer-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .footer-desc {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 300px;
+      line-height: 1.5;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-nav h4 {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .footer-nav button {
+      color: rgba(255,255,255,0.8);
+      font-size: 0.8rem;
+    }
+
+    .footer-nav button:hover {
+      color: var(--gold);
+    }
+
+    .footer-badge {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .badge-details h4 {
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+
+    .badge-details p {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .copyright {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+    }
+
+    /* ---------- MEDIA QUERIES (TABLETTE / DESKTOP) ---------- */
+    @media (min-width: 640px) {
+      .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .infos-grid {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+    }
+
+    @media (min-width: 768px) {
+      .desktop-nav {
+        display: flex;
+      }
+      .burger-btn {
+        display: none;
+      }
+      .mobile-menu {
+        display: none !important;
+      }
+      .hero-section {
+        padding: 64px 24px;
+      }
+      .hero-title {
+        font-size: 2.8rem;
+      }
+      .footer-inner {
+        grid-template-columns: repeat(3, 1fr);
+        text-align: left;
+      }
+      .footer-brand {
+        align-items: flex-start;
+      }
+      .footer-nav {
+        align-items: flex-start;
+      }
+      .footer-badge {
+        align-items: flex-end;
+        text-align: right;
+      }
+    }
+
+    @media (min-width: 960px) {
+      .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BANDEAU DE NAVIGATION -->
+  <header class="top-bar">
+    <div class="top-bar-inner">
+      
+      <!-- Logo et Titre -->
+      <a href="#" onclick="switchTab('accueil')" class="brand">
+        <div class="brand-logo-container">
+      <img src="/max/logo.svg" alt="Mes Délices" class="brand-logo"/>
+        </div>
+        <div class="brand-meta">
+          <span class="brand-name">Mes Délices</span>
+          <span class="brand-subtitle">Haute Pâtisserie</span>
+        </div>
+      </a>
+
+      <!-- Actions de navigation -->
+      <div class="nav-actions">
+        <!-- Navigation Bureau -->
+        <nav class="desktop-nav">
+          <button onclick="switchTab('accueil')" id="nav-desk-accueil" class="nav-link active">Accueil</button>
+          <button onclick="switchTab('infos')" id="nav-desk-infos" class="nav-link">À propos & Contact</button>
+        </nav>
+
+        <!-- Bouton Panier -->
+        <button class="cart-btn" id="cartBtn" onclick="openCartModal()" aria-label="Voir le panier">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+
+        <!-- Menu Mobile Burger -->
+        <button class="burger-btn" onclick="toggleMobileMenu()" aria-label="Ouvrir le menu">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Tiroir Burger Mobile -->
+    <div class="mobile-menu" id="mobileMenu">
+      <button onclick="switchTab('accueil'); toggleMobileMenu();">✨ Accueil Gourmand</button>
+      <button onclick="switchTab('infos'); toggleMobileMenu();">📍 Informations & Contact</button>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ==================== ONGLETS : ACCUEIL ==================== -->
+    <section id="page-accueil" class="tab-content active">
+      
+      <!-- Section Bienvenue -->
+      <div class="hero-section">
+        <div class="hero-container">
+          <span class="hero-subtitle">Créateur d'Émotions Sucrées</span>
+          <h1 class="hero-title">Bienvenue chez <span>Mes Délices</span></h1>
+          <p class="hero-desc">
+            Chaque délice est conçu avec passion dans notre atelier à partir d'ingrédients nobles sélectionnés pour éveiller vos sens et illuminer vos réceptions.
+          </p>
+          <div class="hero-divider"></div>
+          <a href="#produits-start" class="hero-btn">
+            Découvrir nos créations
+          </a>
+        </div>
+      </div>
+
+      <!-- Titre de la galerie -->
+      <div class="section-header" id="produits-start">
+        <h2 class="section-title">Nos Gourmandises Signatures</h2>
+        <p class="section-subtitle">Faites votre choix parmi nos plus belles réalisations d'exception.</p>
+      </div>
+
+      <!-- Grille des produits -->
+      <div class="products-container">
+        <div class="products-grid" id="productsGrid"></div>
+      </div>
+
+    </section>
+
+    <!-- ==================== ONGLETS : INFOS ==================== -->
+    <section id="page-infos" class="tab-content">
+      
+      <div class="section-header">
+        <h2 class="section-title">Notre Atelier de Prestige</h2>
+        <p class="section-subtitle">Retrouvez nos coordonnées, horaires et venez partager l'expérience en boutique.</p>
+      </div>
+
+      <div class="infos-container">
+        <div class="infos-grid">
+          
+          <!-- Carte Informations de Contact -->
+          <div class="info-card">
+            <h3>Nos Coordonnées</h3>
+            <div class="info-details">
+              
+              <div class="info-item">
+                <div class="info-icon">📍</div>
+                <div>
+                  <h4>Atelier Principal</h4>
+                  <p>12 Avenue de l'Émeraude, Cocody, Abidjan</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">📞</div>
+                <div>
+                  <h4>Service Client Privé</h4>
+                  <p>+225 07 07 89 89 00</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">✉️</div>
+                <div>
+                  <h4>Courrier Électronique</h4>
+                  <p>contact@mesdelices-demo.com</p>
+                </div>
+              </div>
+
+              <div class="info-item">
+                <div class="info-icon">✨</div>
+                <div>
+                  <h4>Réseaux Sociaux</h4>
+                  <div class="social-links">
+                    <a href="#" class="social-btn" aria-label="Facebook">F</a>
+                    <a href="#" class="social-btn" aria-label="Instagram">I</a>
+                    <a href="#" class="social-btn" aria-label="WhatsApp">W</a>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Heures d'Ouverture -->
+          <div class="info-card">
+            <h3>Heures d'Ouverture</h3>
+            <ul class="hours-list">
+              <li>
+                <span class="day">Mardi — Vendredi</span>
+                <span class="time">09h00 - 19h00</span>
+              </li>
+              <li class="highlight">
+                <span class="day">Samedi</span>
+                <span class="time">08h30 - 20h00</span>
+              </li>
+              <li>
+                <span class="day">Dimanche Matin</span>
+                <span class="time">09h00 - 13h00</span>
+              </li>
+              <li>
+                <span class="day" style="color: var(--text-light);">Lundi</span>
+                <span class="time">Fermé</span>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ==================== PIED DE PAGE (FOOTER) ==================== -->
+  <footer class="main-footer">
+    <div class="footer-inner">
+      
+      <!-- Brand & Description -->
+      <div class="footer-brand">
+        <div class="footer-logo">
+ <img src="/max/logo.svg" alt="Mes Délices" class="brand-logo"/>
+        </div>
+        <h4 class="footer-title">Mes Délices</h4>
+        <p class="footer-desc">
+          L'art de la pâtisserie d'exception pour accompagner vos plus beaux moments d'émotion et de partage.
+        </p>
+      </div>
+
+      <!-- Liens rapides -->
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <button onclick="switchTab('accueil')">La Collection</button>
+        <button onclick="switchTab('infos')">À propos de l'Atelier</button>
+        <button onclick="openCartModal()">Mon Panier</button>
+      </div>
+
+      <!-- Trust Elements -->
+      <div class="footer-badge">
+        <div class="badge-details">
+          <h4>Paiement Sécurisé</h4>
+          <p>Règlement facile à la livraison (Espèces ou Mobile Money).</p>
+        </div>
+        <div class="badge-details" style="margin-top: 10px;">
+          <p>© 2026 Mes Délices. Tous droits réservés.</p>
+          
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==================== DIALOGUE MODAL : PANIER & FINALISATION ==================== -->
+  <div class="cart-modal" id="cartModal">
+    <div class="modal-overlay" onclick="closeCartModal()"></div>
+    <div class="modal-drawer">
+      
+      <!-- Entête modal -->
+      <div class="modal-header">
+        <div class="modal-title-wrapper">
+          <span class="spark">✦</span>
+          <h2 id="modalTitle">Mon Panier Gourmet</h2>
+        </div>
+        <button class="close-modal-btn" onclick="closeCartModal()" aria-label="Fermer">&times;</button>
+      </div>
+
+      <!-- Corps dynamique du modal -->
+      <div class="modal-body">
+        
+        <!-- ÉTATE 1 : VISUALISATION DU PANIER -->
+        <div id="stateCart" class="modal-state active">
+          
+          <!-- État Vide -->
+          <div id="cartEmpty" class="cart-empty-state">
+            <div class="cart-empty-icon">🛒</div>
+            <h3>Votre panier est vide</h3>
+            <p>Découvrez notre sélection artisanale et ajoutez des gourmandises pour commencer.</p>
+            <button class="cart-empty-btn" onclick="closeCartModal()">Voir les gâteaux</button>
+          </div>
+
+          <!-- Liste des articles -->
+          <div id="cartList" class="cart-items-list"></div>
+
+        </div>
+
+        <!-- ÉTAT 2 : FORMULAIRE DE COMMANDE -->
+        <div id="stateForm" class="modal-state">
+          <div class="order-total-banner">
+            Montant total de votre commande : <span id="checkoutTotal">0 FCFA</span>
+          </div>
+
+          <form id="orderForm" class="checkout-form" novalidate onsubmit="handleFormSubmit(event)">
+            
+            <div class="form-row-2">
+              <div class="form-group-custom">
+                <label for="cmdNom">Nom <span>*</span></label>
+                <input type="text" id="cmdNom" placeholder="Ex: Kouassi" required />
+              </div>
+              <div class="form-group-custom">
+                <label for="cmdPrenoms">Prénom <span>*</span></label>
+                <input type="text" id="cmdPrenoms" placeholder="Ex: Aya Grace" required />
+              </div>
+            </div>
+
+            <div class="form-row-2">
+              <div class="form-group-custom">
+                <label for="cmdTel">Téléphone <span>*</span></label>
+                <input type="tel" id="cmdTel" placeholder="Ex: 0707898900" maxlength="10" inputmode="numeric" oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)" required />
+              </div>
+              <div class="form-group-custom">
+                <label for="cmdEmail">E-mail <span>*</span></label>
+                <input type="email" id="cmdEmail" placeholder="exemple@email.com" required />
+              </div>
+            </div>
+
+            <div class="form-group-custom">
+              <label for="cmdAdresse">Adresse précise de livraison <span>*</span></label>
+              <textarea id="cmdAdresse" rows="3" placeholder="Quartier, résidence, indications..." required></textarea>
+            </div>
+
+            <div class="form-group-custom">
+              <label for="cmdDate">Date de livraison souhaitée</label>
+              <input type="date" id="cmdDate" />
+            </div>
+
+            <!-- Actions du formulaire -->
+            <div class="form-actions">
+              <button type="button" class="form-back-btn" onclick="changeModalState('cart')">Retour</button>
+              <button type="submit" class="form-submit-btn">Confirmer ✦</button>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- ÉTAT 3 : SUCCÈS & ENREGISTREMENT -->
+        <div id="stateSuccess" class="modal-state">
+          <div class="success-state">
+            <div class="success-icon">✓</div>
+            <h3 class="success-title">Commande Enregistrée</h3>
+            <p class="success-desc">Merci pour votre confiance. Votre demande a bien été prise en compte par notre atelier.</p>
+            
+            <div class="success-receipt">
+              <div class="receipt-line">
+                <span class="receipt-label">Destinataire</span>
+                <span class="receipt-value" id="successClient">Client</span>
+              </div>
+              <div class="receipt-line" style="margin-top: 8px;">
+                <span class="receipt-label">Numéro de téléphone</span>
+                <span class="receipt-value" id="successTel">Téléphone</span>
+              </div>
+              <div class="receipt-line" style="margin-top: 8px;">
+                <span class="receipt-label">Status</span>
+                <span class="receipt-value" style="color: #4CAF50;">Attente de confirmation</span>
+              </div>
+            </div>
+
+            <button class="success-close-btn" onclick="finishOrderProcess()">Retourner à l'accueil</button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bas du tiroir (uniquement pour le panier) -->
+      <div class="modal-footer" id="modalFooter">
+        <div class="footer-total-row">
+          <span>Sous-total</span>
+          <strong id="modalCartTotal">0 FCFA</strong>
+        </div>
+        <button class="validate-order-btn" onclick="changeModalState('form')">
+          Valider mon panier
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- TOAST DE NOTIFICATION -->
+  <div class="toast-notif" id="toastNotif">
+    <span class="spark">✦</span>
+    <span id="toastMessage">Article ajouté au panier d'or.</span>
+  </div>
+
+  <!-- ==================== CORE SCRIPT JAVASCRIPT ==================== -->
+  <script>
+    // ---------- Données des Produits de Prestige (Démo de haute pâtisserie) ----------
+    const PRODUCTS = [
+      { 
+        id: 1, 
+        name: "Forêt Chocolat Intense", 
+        desc: "Génoise cacao parfumée, crème fouettée légère, griottes confites et fins copeaux de chocolat noir grand cru.", 
+        price: 9000, 
+        img: "/max/images/1 Foret chocolat.jpg" 
+      },
+      { 
+        id: 2, 
+        name: "Fraisier Royal aux Fraises", 
+        desc: "Crème mousseline onctueuse parfumée à la gousse de vanille, fraises fraîches de saison sur biscuit génoise moelleux.", 
+        price: 8500, 
+        img: "/max/images/2 Fraisier aux Fraises.jpg" 
+      },
+      { 
+        id: 3, 
+        name: "Trianon Praliné Croustillant", 
+        desc: "Craquant délicat praliné feuillantine, mousse veloutée au chocolat noir intense et biscuit dacquoise noisette.", 
+        price: 9500, 
+        img: "/max/images/7 Trianon Praline.jpg" 
+      },
+      { 
+        id: 4, 
+        name: "Tarte Citron Acidulée", 
+        desc: "Pâte sablée pur beurre, crème citronnée jaune intense bio et une meringue italienne délicatement dorée.", 
+        price: 5500, 
+        img: "/max/images/8 Tarte acidulee.jpg" 
+      },
+      { 
+        id: 5, 
+        name: "Moelleux Gourmand Baobab", 
+        desc: "Gâteau unique, fin et moelleux élaboré aux saveurs douces du fruit du baobab d'Afrique de l'Ouest.", 
+        price: 4000, 
+        img:  "/max/images/9 Moelleux Baobab.jpg"
+      },
+      { 
+        id: 6, 
+        name: "Charlotte Royale & Baies", 
+        desc: "Biscuits cuillères légers, bavarois parfumé aux framboises et couronné d'un assortiment de baies fraîches.", 
+        price: 12000, 
+        img: "/max/images/9 Moelleux Baobab.jpg" 
+      }
+    ];
+
+    // Variables de contrôle de l'application
+    let cart = []; // Format : [{ id, qty }]
+    let activeTab = 'accueil';
+
+    // ---------- Au chargement initial ----------
+    window.addEventListener('DOMContentLoaded', () => {
+      renderProductsGrid();
+      updateCartBadge();
+      
+      // Configuration de la date minimale de livraison (demain)
+      const dateInput = document.getElementById('cmdDate');
+      if (dateInput) {
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        dateInput.min = tomorrow.toISOString().split('T')[0];
+        dateInput.value = tomorrow.toISOString().split('T')[0];
+      }
+    });
+
+    // ---------- Gestion Navigation SPA (Onglets) ----------
+    function switchTab(tabId) {
+      activeTab = tabId;
+
+      // Éléments des onglets
+      const tabAccueil = document.getElementById('page-accueil');
+      const tabInfos = document.getElementById('page-infos');
+
+      // Boutons Navigation Bureau
+      const linkAccueilDesk = document.getElementById('nav-desk-accueil');
+      const linkInfosDesk = document.getElementById('nav-desk-infos');
+
+      if (tabId === 'accueil') {
+        tabAccueil.classList.add('active');
+        tabInfos.classList.remove('active');
+
+        linkAccueilDesk.classList.add('active');
+        linkInfosDesk.classList.remove('active');
+      } else if (tabId === 'infos') {
+        tabInfos.classList.add('active');
+        tabAccueil.classList.remove('active');
+
+        linkInfosDesk.classList.add('active');
+        linkAccueilDesk.classList.remove('active');
+      }
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Toggle menu mobile burger dropdown
+    function toggleMobileMenu() {
+      const menu = document.getElementById('mobileMenu');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+
+    // ---------- Affichage des Produits ----------
+    function renderProductsGrid() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = PRODUCTS.map(p => `
+        <div class="product-card">
+          <div class="product-img-wrapper">
+            <img class="product-image" src="${p.img}" alt="${p.name}" loading="lazy"/>
+            <span class="product-badge-price">${formatPrice(p.price)}</span>
+          </div>
+          <div class="product-info">
+            <div>
+              <h3 class="product-name-title">${p.name}</h3>
+              <p class="product-desc-text">${p.desc}</p>
+            </div>
+            <div class="product-actions-bar">
+              <!-- Sélecteur de quantité local -->
+              <div class="qty-selector">
+                <button type="button" onclick="changeProductCardQty(${p.id}, -1)">-</button>
+                <input type="text" id="qty-card-${p.id}" value="1" readonly/>
+                <button type="button" onclick="changeProductCardQty(${p.id}, 1)">+</button>
+              </div>
+              <button class="add-to-cart-btn" onclick="addProductToCart(${p.id})">
+                Ajouter
+              </button>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Changer la quantité du sélecteur directement sur la fiche produit
+    function changeProductCardQty(productId, change) {
+      const input = document.getElementById(`qty-card-${productId}`);
+      let currentVal = parseInt(input.value) || 1;
+      currentVal += change;
+      if (currentVal < 1) currentVal = 1;
+      if (currentVal > 15) currentVal = 15;
+      input.value = currentVal;
+    }
+
+    // ---------- Utilitaires ----------
+    function formatPrice(n) {
+      return n.toLocaleString('fr-FR') + ' FCFA';
+    }
+
+    function getProduct(id) {
+      return PRODUCTS.find(p => p.id === id);
+    }
+
+    function showToast(message) {
+      const toast = document.getElementById('toastNotif');
+      const toastMsg = document.getElementById('toastMessage');
+      toastMsg.innerText = message;
+      
+      toast.classList.add('show');
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.remove('show');
+      }, 3000);
+    }
+
+    // ---------- Modal Tiroir (Contrôles d'état) ----------
+    function openCartModal() {
+      const modal = document.getElementById('cartModal');
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden'; // désactive le défilement de fond
+      changeModalState('cart');
+    }
+
+    function closeCartModal() {
+      const modal = document.getElementById('cartModal');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Changement d'étapes dans le tiroir ('cart' | 'form' | 'success')
+    function changeModalState(state) {
+      const stateCart = document.getElementById('stateCart');
+      const stateForm = document.getElementById('stateForm');
+      const stateSuccess = document.getElementById('stateSuccess');
+      
+      const modalFooter = document.getElementById('modalFooter');
+      const modalTitle = document.getElementById('modalTitle');
+
+      // Masquer tous les états
+      stateCart.classList.remove('active');
+      stateForm.classList.remove('active');
+      stateSuccess.classList.remove('active');
+      modalFooter.style.display = 'none';
+
+      if (state === 'cart') {
+        stateCart.classList.add('active');
+        modalTitle.innerText = "Mon Panier Gourmet";
+        renderCartList();
+        if (cart.length > 0) {
+          modalFooter.style.display = 'flex';
+        }
+      } else if (state === 'form') {
+        stateForm.classList.add('active');
+        modalTitle.innerText = "Finaliser la commande";
+        const total = cart.reduce((sum, item) => sum + (getProduct(item.id).price * item.qty), 0);
+        document.getElementById('checkoutTotal').innerText = formatPrice(total);
+      } else if (state === 'success') {
+        stateSuccess.classList.add('active');
+        modalTitle.innerText = "Prestige Validé";
+      }
+    }
+
+    // ---------- Gestion Interne du Panier ----------
+    function addProductToCart(productId) {
+      const cardInput = document.getElementById(`qty-card-${productId}`);
+      const quantity = parseInt(cardInput.value) || 1;
+
+      const existingItem = cart.find(item => item.id === productId);
+      if (existingItem) {
+        existingItem.qty += quantity;
+      } else {
+        cart.push({ id: productId, qty: quantity });
+      }
+
+      // Reset quantité sur la carte
+      cardInput.value = 1;
+
+      updateCartBadge();
+      showToast(`${quantity} x "${getProduct(productId).name}" ajouté au panier.`);
+    }
+
+    function changeCartItemQty(productId, change) {
+      const item = cart.find(i => i.id === productId);
+      if (item) {
+        item.qty += change;
+        if (item.qty <= 0) {
+          removeItemFromCart(productId);
+          return;
+        }
+        if (item.qty > 20) item.qty = 20;
+      }
+      renderCartList();
+      updateCartBadge();
+    }
+
+    function removeItemFromCart(productId) {
+      cart = cart.filter(item => item.id !== productId);
+      renderCartList();
+      updateCartBadge();
+      showToast("Gourmandise retirée de votre sélection.");
+    }
+
+    function updateCartBadge() {
+      const totalCount = cart.reduce((sum, item) => sum + item.qty, 0);
+      document.getElementById('cartCount').innerText = totalCount;
+    }
+
+    // Rendu dynamique de la liste d'articles dans le panier tiroir
+    function renderCartList() {
+      const container = document.getElementById('cartList');
+      const emptyState = document.getElementById('cartEmpty');
+      const modalFooter = document.getElementById('modalFooter');
+
+      if (cart.length === 0) {
+        container.innerHTML = '';
+        emptyState.style.display = 'block';
+        modalFooter.style.display = 'none';
+        return;
+      }
+
+      emptyState.style.display = 'none';
+      modalFooter.style.display = 'flex';
+
+      let total = 0;
+
+      container.innerHTML = cart.map(item => {
+        const prod = getProduct(item.id);
+        const subtotal = prod.price * item.qty;
+        total += subtotal;
+
+        return `
+          <div class="cart-item-row">
+            <img src="${prod.img}" alt="${prod.name}" class="cart-item-img" />
+            <div class="cart-item-details">
+              <div>
+                <div class="cart-item-name">${prod.name}</div>
+                <div class="cart-item-price">${formatPrice(prod.price)}</div>
+              </div>
+              <div class="cart-item-control-row">
+                <div class="qty-selector" style="scale: 0.9; transform-origin: left center;">
+                  <button type="button" onclick="changeCartItemQty(${item.id}, -1)">-</button>
+                  <input type="text" value="${item.qty}" readonly />
+                  <button type="button" onclick="changeCartItemQty(${item.id}, 1)">+</button>
+                </div>
+                <div class="cart-item-subtotal">${formatPrice(subtotal)}</div>
+              </div>
+            </div>
+            <button class="remove-item-btn" onclick="removeItemFromCart(${item.id})" aria-label="Supprimer">&times;</button>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('modalCartTotal').innerText = formatPrice(total);
+    }
+
+    // ---------- Traitement du Formulaire de Commande ----------
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      // Récupération des informations de livraison
+      const nom = document.getElementById('cmdNom').value.trim();
+      const prenoms = document.getElementById('cmdPrenoms').value.trim();
+      const email = document.getElementById('cmdEmail').value.trim();
+      const tel = document.getElementById('cmdTel').value.trim();
+      const adresse = document.getElementById('cmdAdresse').value.trim();
+
+      // Vérification des champs vides
+      if (!nom || !prenoms || !email || !tel || !adresse) {
+        showToast("Veuillez remplir toutes les informations requises.");
+        return;
+      }
+
+      // Vérification Téléphone local (Côte d'Ivoire : 10 chiffres commençant par 01, 05, 07)
+      const telRegex = /^(01|05|07)\d{8}$/;
+      if (!telRegex.test(tel)) {
+        showToast("Numéro invalide. Il doit commencer par 01, 05 ou 07 et faire 10 chiffres.");
+        return;
+      }
+
+      // Vérification basique de l'email
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailRegex.test(email)) {
+        showToast("Veuillez entrer une adresse e-mail valide.");
+        return;
+      }
+
+      if (cart.length === 0) {
+        showToast("Votre panier est vide.");
+        return;
+      }
+
+      // Remplissage de l'écran de réussite
+      document.getElementById('successClient').innerText = `${prenoms} ${nom.toUpperCase()}`;
+      document.getElementById('successTel').innerText = tel.replace(/(\d{2})(\d{2})(\d{2})(\d{2})(\d{2})/, "$1 $2 $3 $4 $5"); // Format espacé
+
+      // Basculer vers l'état de succès
+      changeModalState('success');
+
+      // Vider le panier
+      cart = [];
+      updateCartBadge();
+      document.getElementById('orderForm').reset();
+    }
+
+    function finishOrderProcess() {
+      closeCartModal();
+      switchTab('accueil');
+    }
+  </script>
+</body>
+</html>
