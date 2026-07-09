@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Commander — Mes Délices</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/commande.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span><span class="logo-text">Mes Délices</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="personnaliser.html">Choisir votre Gâteau</a></li>
+      <li><a href="commande.html" class="active">Passer une Commande</a></li>
+
+    </ul>
+    <div class="nav-actions">
+      <a href="panier.html" class="cart-btn">🛒 <span class="cart-count" id="cartCount">0</span></a>
+  
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span>✦ Commander ✦</span>
+      <h1>Passer une Commande</h1>
+      <p>Remplissez le formulaire et votre commande sera enregistrée instantanément.</p>
+    </div>
+  </div>
+
+  <main class="commande-main">
+    <section class="order-section" id="orderSection">
+      <div class="section-header">
+        <span class="section-tag">Formulaire</span>
+        <h2>Passez votre Commande</h2>
+      </div>
+      <div class="order-form-wrap">
+        <div class="form-row">
+  <div class="form-group">
+    <label>Nom <span>*</span></label>
+    <input type="text" id="cmdNom" placeholder="Ex: Kouassi" required/>
+  </div>
+  <div class="form-group">
+    <label>Prénoms <span>*</span></label>
+    <input type="text" id="cmdPrenoms" placeholder="Ex: Aya Grace" required/>
+  </div>
+</div>
+<div class="form-row">
+  <div class="form-group">
+    <label>Email <span>*</span></label>
+    <input type="email" id="cmdEmail" placeholder="exemple@email.com" required/>
+  </div>
+  <div class="form-group">
+    <label>Numéro de téléphone <span>*</span></label>
+    <input type="tel" id="cmdTel" placeholder="Ex: 0700000000" maxlength="10" inputmode="numeric" required oninput="this.value=this.value.replace(/[^0-9]/g,'').slice(0,10)"/>
+  </div>
+</div>
+        <div class="form-group">
+          <label>Date de livraison <span>*</span></label>
+          <input type="date" id="cmdDate" required/>
+        </div>
+        <div class="form-group">
+          <label>Adresse de livraison <span>*</span></label>
+          <textarea id="msgArea" rows="3" placeholder="Quartier, rue, repère, commune..." required style="width:100%;padding:.75rem 1rem;border:1px solid var(--blush);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:.95rem;background:var(--cream);resize:vertical;box-sizing:border-box;"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Montant Total</label>
+          <div style="background:var(--cream);border:1px solid var(--blush);border-radius:var(--radius-sm);padding:.8rem 1.2rem;">
+            <span id="montantTotalAffiche" style="font-family:var(--font-display);font-size:1.3rem;color:var(--caramel);font-weight:700;">—</span>
+          </div>
+          <span id="montantTotalHint" style="font-size:.78rem;color:var(--text-light);margin-top:.3rem;display:block;">
+            Aucun article. <a href="personnaliser.html" style="color:var(--caramel);">Personnalisez d'abord →</a>
+          </span>
+        </div>
+        <button class="btn-primary btn-submit" id="submitBtn" disabled style="opacity:.5;cursor:not-allowed;" onclick="passerCommande()">Envoyer ma commande ✉️</button>
+      </div>
+    </section>
+  </main>
+
+  <!-- SECTION CONFIRMATION -->
+  <section id="confirmationSection" style="display:none;max-width:640px;margin:0 auto 4rem;padding:0 2rem;">
+    <div style="background:var(--white);border-radius:var(--radius-lg);box-shadow:0 8px 32px var(--shadow-md);padding:3rem;text-align:center;">
+      <div style="font-size:4rem;margin-bottom:1rem;">🎉</div>
+      <h2 style="font-family:var(--font-display);color:var(--chocolate);margin-bottom:.5rem;">Commande confirmée !</h2>
+      <p style="color:var(--text-mid);margin-bottom:2rem;">Votre commande a bien été enregistrée.</p>
+      <div style="background:var(--cream);border-radius:var(--radius);padding:1.5rem;text-align:left;margin-bottom:1.5rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;">
+          <div><span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">N° commande</span><br/><strong id="confirmNo" style="color:var(--caramel);"></strong></div>
+          <div>
+            <span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">Client</span><br/>
+            <strong id="confirmClient"></strong>
+          </div>
+          <div>
+            <span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">Email</span><br /><strong id="confirmEmail"></strong>
+          </div>
+          <div>
+            <span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">Téléphone</span><br /><strong id="confirmTel"></strong>
+          </div>
+          <div>
+            <span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">Articles</span><br/>
+            <strong id="confirmGateau"></strong>
+          </div>
+          <div><span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">Montant</span><br/><strong id="confirmPrix" style="color:var(--caramel);"></strong></div>
+          <div><span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">Livraison le</span><br/><strong id="confirmDate"></strong></div>
+          <div><span style="font-size:.75rem;color:var(--text-light);font-weight:700;text-transform:uppercase;">Adresse</span><br/><strong id="confirmLieu"></strong></div>
+        </div>
+      </div>
+      <!-- BLOC CUPCAKES GRATUITS -->
+      <div id="confirmGratuitsSection" style="display:none;background:linear-gradient(135deg,#FFF8EC,#FFF0D6);border:2px solid var(--caramel);border-radius:var(--radius);padding:1.2rem 1.5rem;margin-bottom:1.5rem;text-align:left;">
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.5rem;">
+          <span style="font-size:1.8rem;">🎁</span>
+          <strong style="font-family:var(--font-display);font-size:1.05rem;color:var(--chocolate);">Cadeau fidélité inclus !</strong>
+        </div>
+        <p style="font-size:.92rem;color:var(--text-dark);margin:0 0 .3rem;">
+          <strong id="confirmGratuitsNb" style="color:var(--caramel);font-size:1.1rem;"></strong> cupcake(s) gratuit(s) ont été ajoutés à votre commande.
+        </p>
+        <p style="font-size:.78rem;color:var(--text-light);margin:0;">🏆 Offert pour votre fidélité — 1 cupcake gratuit tous les 10 gâteaux achetés.</p>
+      </div>
+      <a href="index.html" class="btn-primary">Retour à l'accueil →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-icon">
+        <svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg>
+      </span>
+      <h3>Mes Délices</h3>
+      <p>Pâtisserie artisanale depuis 1998.</p>
+    </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="personnaliser.html">Choisir un Gâteau</a>
+        </li>
+        <li><a href="commande.html">Commander</a>
+        </li>
+      <li><a href="avis.html">Avis Clients</a></li>
+      </ul>
+      </div>
+    <div class="footer-contact">
+      <h4>Contactez-nous</h4>
+      <p>📍 Grand-Bassam</p>
+      <a href="https://wa.me/2250556830717">📞
+       <span>+225 05 56 83 07 17</a> </span>
+       <a href="mailto: aurmcpe@gmail.com">✉️ <span>Adresse Mail</span></a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Mes Délices. Tous droits réservés.</p>
+  </div>
+  </footer>
+
+  <div class="toast" id="toast">
+  </div>
+  <script src="js/demo-engine.js">
+  </script>
+  <script src="js/global.js"></script>
+    <script src="js/commande.js"></script>
+</body>
+</html>

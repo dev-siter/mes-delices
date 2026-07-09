@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Personnaliser — Mes Délices</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/personnaliser.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span><span class="logo-text">Mes Délices</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="personnaliser.html" class="active">Choisir votre Gâteau</a></li>
+      <li><a href="commande.html">Passer une Commande</a></li>
+      
+    </ul>
+    <div class="nav-actions">
+      <a href="panier.html" class="cart-btn">🛒 <span class="cart-count" id="cartCount">0</span></a>
+    
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span>✦ Notre Carte ✦</span>
+      <h1>Personnalisez Votre Gâteau</h1>
+      <p>Découvrez la composition de chaque gâteau, choisissez votre taille et ajoutez au panier.</p>
+    </div>
+  </div>
+
+<main class="perso-main">
+    <!-- FILTER BAR -->
+    <div class="filter-bar">
+      <button class="filter-btn active" data-cat="all">Tous</button>
+      <button class="filter-btn" data-cat="chocolat">Chocolat</button>
+      <button class="filter-btn" data-cat="fruit">Fruité</button>
+      <button class="filter-btn" data-cat="classique">Classique</button>
+      <button class="filter-btn" data-cat="exotique">Exotique</button>
+    </div>
+
+    <!-- GÂTEAUX GRID -->
+    <div class="gateaux-grid" id="gateauxGrid">
+
+      <!-- GATEAU 1 -->
+      <div class="gateau-card" data-cat="classique" data-id="1" data-name="Forêt chocolat" data-price="18500">
+        <div class="gateau-img-wrap">
+          <img src="images/1 Foret chocolat.jpg" alt="Forêt chocolat" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge">Classique</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Forêt chocolat</h3>
+          <p class="gateau-desc">Le grand classique allemand revisité par nos chefs</p>
+          <p class="gateau-price">À partir de <strong>18 500 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-1">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Gâteau au chocolat noir</li>
+              <li class="ing-item-text">Cerises griottines</li>
+              <li class="ing-item-text">Crème chantilly</li>
+              <li class="ing-item-text">Kirsch (alcool de cerise)</li>
+              <li class="ing-item-text">Copeaux de chocolat</li>
+              <li class="ing-item-text">Sucre glace</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-1" value="petite" class="taille-radio"/> 🟡 Petite — 12,333 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-1" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 18,500 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-1" value="grande" class="taille-radio"/> 🔴 Grande — 24,667 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(1, 'Forêt chocolat', 18500, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 2 -->
+      <div class="gateau-card" data-cat="fruit" data-id="2" data-name="Fraisier aux Fraises" data-price="21000">
+        <div class="gateau-img-wrap">
+          <img src="images/2 Fraisier aux Fraises.jpg" alt="Fraisier aux Fraises" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge badge-fruit">Fruité</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Fraisier aux Fraises</h3>
+          <p class="gateau-desc">Fraises fraîches, crème mousseline vanillée</p>
+          <p class="gateau-price">À partir de <strong>21 000 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-2">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Génoise moelleuse</li>
+              <li class="ing-item-text">Fraises fraîches</li>
+              <li class="ing-item-text">Crème mousseline vanille</li>
+              <li class="ing-item-text">Pâte d'amande rose</li>
+              <li class="ing-item-text">Sirop de fraise</li>
+              <li class="ing-item-text">Décor en sucre</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-2" value="petite" class="taille-radio"/> 🟡 Petite — 14,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-2" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 21,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-2" value="grande" class="taille-radio"/> 🔴 Grande — 28,000 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(2, 'Fraisier aux Fraises', 21000, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 3 -->
+      <div class="gateau-card" data-cat="classique" data-id="3" data-name="Opéra Doré" data-price="24000">
+        <div class="gateau-img-wrap">
+          <img src="images/3 Opera Dore.jpg" alt="Opéra Doré" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge">Classique</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Opéra Doré</h3>
+          <p class="gateau-desc">Café, chocolat noir, biscuit joconde aux amandes</p>
+          <p class="gateau-price">À partir de <strong>24 000 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-3">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Biscuit joconde amandes</li>
+              <li class="ing-item-text">Crème au beurre café</li>
+              <li class="ing-item-text">Ganache chocolat noir</li>
+              <li class="ing-item-text">Sirop d'imbibage café</li>
+              <li class="ing-item-text">Glaçage chocolat brillant</li>
+              <li class="ing-item-text">Feuille d'or décorative</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-3" value="petite" class="taille-radio"/> 🟡 Petite — 16,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-3" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 24,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-3" value="grande" class="taille-radio"/> 🔴 Grande — 32,000 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(3, 'Opéra Doré', 24000, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 4 -->
+      <div class="gateau-card" data-cat="chocolat" data-id="4" data-name="Fondant Volcanique" data-price="16500">
+        <div class="gateau-img-wrap">
+          <img src="images/4 Fondant Volcanique.jpg" alt="Fondant Volcanique" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge badge-choc">Chocolat</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Fondant Volcanique</h3>
+          <p class="gateau-desc">Cœur coulant chocolat 70%, ganache intense</p>
+          <p class="gateau-price">À partir de <strong>16 500 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-4">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Chocolat noir 70%</li>
+              <li class="ing-item-text">Beurre de qualité supérieure</li>
+              <li class="ing-item-text">Œufs frais de ferme</li>
+              <li class="ing-item-text">Farine de blé T45</li>
+              <li class="ing-item-text">Ganache cœur coulant</li>
+              <li class="ing-item-text">Poudre de cacao pur</li>
+              <li class="ing-item-text">Sucre brun de canne</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-4" value="petite" class="taille-radio"/> 🟡 Petite — 11,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-4" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 16,500 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-4" value="grande" class="taille-radio"/> 🔴 Grande — 22,000 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(4, 'Fondant Volcanique', 16500, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 5 -->
+      <div class="gateau-card" data-cat="exotique" data-id="5" data-name="Tropicana Passion" data-price="22000">
+        <div class="gateau-img-wrap">
+          <img src="images/5 Tropicana Passion.jpg" alt="Tropicana Passion" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge badge-exotic">Exotique</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Tropicana Passion</h3>
+          <p class="gateau-desc">Mangue, fruit de la passion, coco, gingembre</p>
+          <p class="gateau-price">À partir de <strong>22 000 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-5">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Purée de mangue fraîche</li>
+              <li class="ing-item-text">Mousse fruit de la passion</li>
+              <li class="ing-item-text">Dacquoise noix de coco</li>
+              <li class="ing-item-text">Crème fouettée légère</li>
+              <li class="ing-item-text">Gingembre confit</li>
+              <li class="ing-item-text">Coulis exotique brillant</li>
+              <li class="ing-item-text">Fleurs comestibles</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-5" value="petite" class="taille-radio"/> 🟡 Petite — 14,667 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-5" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 22,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-5" value="grande" class="taille-radio"/> 🔴 Grande — 29,333 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(5, 'Tropicana Passion', 22000, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 6 -->
+      <div class="gateau-card" data-cat="classique" data-id="6" data-name="Millefeuille Bourbon" data-price="19500">
+        <div class="gateau-img-wrap">
+          <img src="images/6 Millefeuille Bourbon.jpg" alt="Millefeuille" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge">Classique</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Millefeuille Bourbon</h3>
+          <p class="gateau-desc">Feuilletage caramélisé, crème diplomate vanille Bourbon</p>
+          <p class="gateau-price">À partir de <strong>19 500 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-6">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Pâte feuilletée pur beurre</li>
+              <li class="ing-item-text">Crème pâtissière vanille Bourbon</li>
+              <li class="ing-item-text">Chantilly légère</li>
+              <li class="ing-item-text">Glaçage fondant blanc</li>
+              <li class="ing-item-text">Décor chocolat marbre</li>
+              <li class="ing-item-text">Sucre perlé caramélisé</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-6" value="petite" class="taille-radio"/> 🟡 Petite — 13,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-6" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 19,500 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-6" value="grande" class="taille-radio"/> 🔴 Grande — 26,000 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(6, 'Millefeuille Bourbon', 19500, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 7 -->
+      <div class="gateau-card" data-cat="chocolat" data-id="7" data-name="Trianon Praliné" data-price="23500">
+        <div class="gateau-img-wrap">
+          <img src="images/7 Trianon Praline.jpg" alt="Trianon" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge badge-choc">Chocolat</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Trianon Praliné</h3>
+          <p class="gateau-desc">Dacquoise noisette, croustillant praliné, mousse chocolat</p>
+          <p class="gateau-price">À partir de <strong>23 500 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-7">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Dacquoise noisettes</li>
+              <li class="ing-item-text">Praliné feuilletine croustillant</li>
+              <li class="ing-item-text">Mousse chocolat au lait</li>
+              <li class="ing-item-text">Glaçage miroir chocolat</li>
+              <li class="ing-item-text">Éclats de noisettes torréfiées</li>
+              <li class="ing-item-text">Pâte de praliné maison</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-7" value="petite" class="taille-radio"/> 🟡 Petite — 15,667 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-7" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 23,500 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-7" value="grande" class="taille-radio"/> 🔴 Grande — 31,333 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(7, 'Trianon Praliné', 23500, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 8 -->
+      <div class="gateau-card" data-cat="fruit" data-id="8" data-name="Tarte acidulée" data-price="15000">
+        <div class="gateau-img-wrap">
+          <img src="images/8 Tarte acidulee.jpg" alt="Tarte Citron" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge badge-fruit">Fruité</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Tarte acidulée</h3>
+          <p class="gateau-desc">Citrons frais de Sicile, meringue italienne dorée</p>
+          <p class="gateau-price">À partir de <strong>15 000 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-8">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Pâte sablée pur beurre</li>
+              <li class="ing-item-text">Lemon curd citrons Sicile</li>
+              <li class="ing-item-text">Meringue italienne</li>
+              <li class="ing-item-text">Zestes de citron vert</li>
+              <li class="ing-item-text">Beurre noisette</li>
+              <li class="ing-item-text">Fleur de sel</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-8" value="petite" class="taille-radio"/> 🟡 Petite — 10,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-8" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 15,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-8" value="grande" class="taille-radio"/> 🔴 Grande — 20,000 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(8, 'Tarte acidulée', 15000, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- GATEAU 9 -->
+      <div class="gateau-card" data-cat="exotique" data-id="9" data-name="Moelleux Baobab" data-price="20000">
+        <div class="gateau-img-wrap">
+          <img src="images/9 Moelleux Baobab.jpg" alt="Moelleux Baobab" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge badge-exotic">Exotique</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Moelleux Baobab</h3>
+          <p class="gateau-desc">Poudre de baobab, karité, miel d'Afrique</p>
+          <p class="gateau-price">À partir de <strong>20 000 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-9">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Poudre de baobab bio</li>
+              <li class="ing-item-text">Beurre de karité alimentaire</li>
+              <li class="ing-item-text">Miel d'acacias d'Afrique</li>
+              <li class="ing-item-text">Farine de mil</li>
+              <li class="ing-item-text">Vanille de Madagascar</li>
+              <li class="ing-item-text">Crème fouettée au hibiscus</li>
+              <li class="ing-item-text">Coulis de tamarin doux</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-9" value="petite" class="taille-radio"/> 🟡 Petite — 13,333 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-9" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 20,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-9" value="grande" class="taille-radio"/> 🔴 Grande — 26,667 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(9, 'Moelleux Baobab', 20000, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div >
+      
+      <!-- GATEAU 10 -->
+      <div class="gateau-card" data-cat="chocolat" data-id="10" data-name="Charlotte Royale" data-price="26000">
+        <div class="gateau-img-wrap">
+          <img src="images/10 Charlotte Royale.jpg" alt="Charlotte Royale" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+          <div class="gateau-badge badge-premium">Premium</div>
+        </div>
+        <div class="gateau-info">
+          <h3>Charlotte Royale</h3>
+          <p class="gateau-desc">Biscuit roulé framboises, mousse bavaroise, coulis</p>
+          <p class="gateau-price">À partir de <strong>26 000 FCFA</strong></p>
+        </div>
+        <div class="gateau-card-menu" id="det-10">
+          <div class="details-content">
+            <h4>🧾 Ingrédients inclus</h4>
+            <ul class="ing-list">
+              <li class="ing-item-text">Biscuit roulé aux framboises</li>
+              <li class="ing-item-text">Mousse bavaroise vanille</li>
+              <li class="ing-item-text">Coulis de framboises fraîches</li>
+              <li class="ing-item-text">Gélatine naturelle</li>
+              <li class="ing-item-text">Framboises entières décor</li>
+              <li class="ing-item-text">Glaçage miroir framboise</li>
+              <li class="ing-item-text">Feuilles de menthe fraîche</li>
+            </ul>
+            <div class="taille-wrap">
+              <label class="taille-label">📏 Taille du gâteau</label>
+              <div class="taille-options">
+                <label class="taille-opt"><input type="radio" name="taille-10" value="petite" class="taille-radio"/> 🟡 Petite — 17,333 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-10" value="moyenne" class="taille-radio" checked/> 🟠 Moyenne — 26,000 FCFA</label>
+                <label class="taille-opt"><input type="radio" name="taille-10" value="grande" class="taille-radio"/> 🔴 Grande — 34,667 FCFA</label>
+              </div>
+            </div>
+            <button class="btn-add-cart" onclick="addToCart(10, 'Charlotte Royale', 26000, this)">Ajouter au Panier 🛒</button>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end gateaux-grid -->
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span>
+        <h3>Mes Délices</h3>
+        <p>Pâtisserie artisanale depuis 1998.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="personnaliser.html">Choisir un Gâteau</a>
+          </li>
+          <li><a href="commande.html">Commander</a>
+          </li>
+          <li><a href="avis.html">Avis Clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contactez-nous</h4>
+              <p>📍 Grand-Bassam</p>
+       <a href="https://wa.me/2250556830717">📞<span> +225 05 56 83 07 17</a> </span>
+       <a href="mailto: aurmcpe@gmail.com">✉️ <span>Adresse Mail</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Mes Délices. Tous droits réservés.</p></div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/demo-engine.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/personnaliser.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function(){ injectDemoBadge(); });</script>
+</body>
+</html>

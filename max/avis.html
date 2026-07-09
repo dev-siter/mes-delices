@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Témoignages Clients— Mes Délices</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/avis.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">
+      <svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg>
+     </span>
+    <span class="logo-text">Mes Délices</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="personnaliser.html">Choisir votre Gâteau</a></li>
+      <li><a href="commande.html">Passer une Commande</a></li>
+      
+    </ul>
+    <div class="nav-actions">
+      <a href="panier.html" class="cart-btn">🛒 <span class="cart-count" id="cartCount">0</span></a>
+      
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span>✦ Témoignages ✦</span>
+      <h1>Ce que Disent nos Clients</h1>
+      <p>Des centaines de familles nous font confiance. Voici leurs mots.</p>
+    </div>
+  </div>
+
+  <main class="avis-main">
+
+    <!-- STATS BAND -->
+    <section class="stats-band">
+      <div class="stat-item">
+        <span class="stat-number">4.9</span>
+        <span class="stat-stars">★★★★★</span>
+        <span class="stat-label">Note moyenne</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">1 200+</span>
+        <span class="stat-label">Commandes livrées</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">98%</span>
+        <span class="stat-label">Clients satisfaits</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">5 ans</span>
+        <span class="stat-label">De confiance</span>
+      </div>
+    </section>
+
+    <!-- FEATURED REVIEWS -->
+    <section class="featured-reviews">
+      <div class="section-header">
+        <span class="section-tag">Témoignages</span>
+        <h2>Avis de nos Clients</h2>
+      </div>
+
+      <div class="reviews-grid">
+
+        <!-- AVIS 1 -->
+        <div class="review-card review-featured">
+          <div class="review-top">
+            <div class="reviewer-photo">
+              <img src="images/client1.jpg" alt="Amina Kouassi" onerror="this.parentElement.classList.add('no-img')"/>
+              <span class="photo-fallback">A</span>
+            </div>
+            <div class="reviewer-details">
+              <h4>Amina Kouassi</h4>
+              <span class="reviewer-location">📍 Cocody, Abidjan</span>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-date">Mars 2025</div>
+          </div>
+          <div class="review-cake-tag">🎂 Forêt chocolat</div>
+          <blockquote class="review-text">
+            "Je cherchais quelque chose d'exceptionnel pour l'anniversaire de ma mère. Mes Délices a dépassé toutes mes espérances ! Le gâteau était non seulement magnifique, mais d'une délicatesse incroyable. Ma mère en a encore parlé des semaines après. La livraison était ponctuelle et le packaging parfait. Je recommande vivement !"
+          </blockquote>
+          <div class="review-footer">
+            <span class="review-helpful">👍 47 personnes ont trouvé cet avis utile</span>
+            <span class="verified-badge">✓ Achat vérifié</span>
+          </div>
+        </div>
+
+        <!-- AVIS 2 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-photo">
+              <img src="images/clients/client2.jpg" alt="Jean-Paul Mensah" onerror="this.parentElement.classList.add('no-img')"/>
+              <span class="photo-fallback">J</span>
+            </div>
+            <div class="reviewer-details">
+              <h4>Jean-Paul Mensah</h4>
+              <span class="reviewer-location">📍 Plateau, Abidjan</span>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-date">Fév. 2025</div>
+          </div>
+          <div class="review-cake-tag">🍓 Fraisier aux Fraises</div>
+          <blockquote class="review-text">
+            "Nous avons commandé le Fraisier aux Fraises pour notre mariage et ce fut un succès total. Les 200 invités ont adoré ! La présentation était digne d'un grand restaurant parisien. Le Chef Antoine a même personnalisé notre gâteau avec nos initiales en sucre. Une expérience inoubliable et un service exceptionnel !"
+          </blockquote>
+          <div class="review-footer">
+            <span class="review-helpful">👍 62 personnes ont trouvé cet avis utile</span>
+            <span class="verified-badge">✓ Achat vérifié</span>
+          </div>
+        </div>
+
+        <!-- AVIS 3 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-photo">
+              <img src="images/clients/client3.jpg" alt="Sophie Lebrun" onerror="this.parentElement.classList.add('no-img')"/>
+              <span class="photo-fallback">S</span>
+            </div>
+            <div class="reviewer-details">
+              <h4>Sophie Lebrun</h4>
+              <span class="reviewer-location">📍 Marcory, Abidjan</span>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-date">Jan. 2025</div>
+          </div>
+          <div class="review-cake-tag">🌴 Tropicana Passion</div>
+          <blockquote class="review-text">
+            "Le Tropicana Passion est une véritable ode aux saveurs africaines. J'avais demandé quelque chose d'original et de local pour l'anniversaire de mon mari, et le résultat a époustouflé tout le monde. La combinaison mangue-passion-coco est divine. Je suis conquise et j'ai déjà passé une deuxième commande !"
+          </blockquote>
+          <div class="review-footer">
+            <span class="review-helpful">👍 38 personnes ont trouvé cet avis utile</span>
+            <span class="verified-badge">✓ Achat vérifié</span>
+          </div>
+        </div>
+
+        <!-- AVIS 4 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-photo">
+              <img src="images/clients/client4.jpg" alt="Koffi Asante" onerror="this.parentElement.classList.add('no-img')"/>
+              <span class="photo-fallback">K</span>
+            </div>
+            <div class="reviewer-details">
+              <h4>Koffi Asante</h4>
+              <span class="reviewer-location">📍 Yopougon, Abidjan</span>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-date">Déc. 2024</div>
+          </div>
+          <div class="review-cake-tag">👑 Charlotte Royale</div>
+          <blockquote class="review-text">
+            "La Charlotte Royale commandée pour Noël était absolument sublime. Le visuel était à couper le souffle et la mousse bavaroise fondait littéralement en bouche. Le service client de Fatou était irréprochable — elle a répondu à toutes mes questions avec sourire et professionnalisme. Ma famille a adoré !"
+          </blockquote>
+          <div class="review-footer">
+            <span class="review-helpful">👍 29 personnes ont trouvé cet avis utile</span>
+            <span class="verified-badge">✓ Achat vérifié</span>
+          </div>
+        </div>
+
+        <!-- AVIS 5 -->
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-photo">
+              <img src="images/clients/client5.jpg" alt="Marie-Claire Diaby" onerror="this.parentElement.classList.add('no-img')"/>
+              <span class="photo-fallback">M</span>
+            </div>
+            <div class="reviewer-details">
+              <h4>Marie-Claire Diaby</h4>
+              <span class="reviewer-location">📍 Deux Plateaux, Abidjan</span>
+              <div class="review-stars">★★★★★</div>
+            </div>
+            <div class="review-date">Nov. 2024</div>
+          </div>
+          <div class="review-cake-tag">☕ Opéra Doré</div>
+          <blockquote class="review-text">
+            "En tant que professionnelle en événementiel, j'ai travaillé avec de nombreuses pâtisseries. Mes Délices se démarque nettement par sa rigueur, sa créativité et son souci du détail. L'Opéra Doré est d'une finesse rare. Je les recommande sans hésitation pour tout événement professionnel ou privé."
+          </blockquote>
+          <div class="review-footer">
+            <span class="review-helpful">👍 54 personnes ont trouvé cet avis utile</span>
+            <span class="verified-badge">✓ Achat vérifié</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LEAVE REVIEW CTA 
+    <section class="leave-review-cta">
+      <div class="cta-inner">
+        <h2>Partagez votre Expérience</h2>
+        <p>Vous avez commandé chez nous ? Votre avis nous aide à nous améliorer et aide d'autres clients à choisir.</p>
+        <a href="compte.html" class="btn-primary">Laisser un avis →</a>
+      </div>
+    </section>-->
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-icon">
+          <svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span>
+        <h3>Mes Délices</h3>
+        <p>Pâtisserie artisanale depuis 1998.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="personnaliser.html">Choisir un Gâteau</a>
+        </li>
+        <li><a href="commande.html">Commander</a>
+        </li>
+      <li><a href="avis.html">Avis Clients</a></li>
+      </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contactez-nous</h4>
+              <p>📍 Grand-Bassam</p>
+       <a href="https://wa.me/2250556830717">📞<span> +225 05 56 83 07 17</a> </span>
+       <a href="mailto: aurmcpe@gmail.com">✉️ <span>Adresse Mail</span></a>
+      </div>
+    <div class="footer-bottom"><p>© 2026 Mes Délices. Tous droits réservés.</p></div>
+  </footer>
+
+  <script src="js/demo-engine.js"></script>
+  <script src="js/global.js"></script>
+</body>
+</html>

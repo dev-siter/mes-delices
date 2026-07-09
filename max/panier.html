@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panier — Mes Délices</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/panier.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span><span class="logo-text">Mes Délices</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="personnaliser.html">Choisir votre Gâteau</a></li>
+      <li><a href="commande.html">Passer une Commande</a></li>
+     
+    </ul>
+    <div class="nav-actions">
+      <a href="panier.html" class="cart-btn">🛒 <span class="cart-count" id="cartCount">0</span></a>
+
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span>✦ Récapitulatif ✦</span>
+      <h1>Mon Panier</h1>
+      <p>Vérifiez votre sélection avant de finaliser votre commande.</p>
+    </div>
+  </div>
+
+  <main class="panier-main">
+    <div class="panier-wrap">
+      <!-- CART ITEMS -->
+      <div class="cart-items-col">
+        <div id="cartEmpty" class="cart-empty" style="display:none;">
+          <div class="empty-icon">🛒</div>
+          <h3>Votre panier est vide</h3>
+          <p>Découvrez nos délicieux gâteaux et commencez à choisir !</p>
+          <a href="personnaliser.html" class="btn-primary">Voir nos gâteaux</a>
+        </div>
+        <div id="cartItemsList"></div>
+      </div>
+
+      <!-- SUMMARY -->
+      <div class="cart-summary-col">
+        <div class="cart-summary-card">
+          <h3>Résumé de la commande</h3>
+          <div class="summary-row" ><span>Sous-total</span><span id="subtotal">0 FCFA</span></div>
+          <div class="summary-divider"></div>
+          <div class="summary-row summary-total"><span>Total</span><span id="total">0 FCFA</span></div>
+         
+          <button class="btn-primary btn-checkout" id="checkoutBtn" onclick="allerCommander()">Commander maintenant ✓</button>
+          <a href="personnaliser.html" class="btn-outline btn-continue">← Continuer mes achats</a>
+        </div>
+        <div class="guarantee-badges">
+          <div class="guarantee-item">🔒 Paiement sécurisé</div>
+          <div class="guarantee-item">🚀 Livraison 24h</div>
+          <div class="guarantee-item">✅ Satisfaction garantie</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span><h3>Mes Délices</h3><p>Pâtisserie artisanale depuis 1998.</p></div>
+            <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="personnaliser.html">Choisir un Gâteau</a>
+          </li>
+          <li><a href="commande.html">Commander</a>
+          </li>
+          <li><a href="avis.html">Avis Clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contactez-nous</h4>
+              <p>📍 Grand-Bassam</p>
+       <a href="https://wa.me/2250556830717">📞<span> +225 05 56 83 07 17</a> </span>
+       <a href="mailto: aurmcpe@gmail.com">✉️ <span>Adresse Mail</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Mes Délices. Tous droits réservés.</p></div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/demo-engine.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/panier.js"></script>
+ <!-- <script src="js/panier-demo.js"></script>-->
+  
+</body>
+</html>
+
+<!--<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panier — Mes Délices</title>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/panier.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span><span class="logo-text">Mes Délices</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="personnaliser.html">Personnaliser votre Gâteau</a></li>
+      <li><a href="commande.html">Passer une Commande</a></li>
+      <li><a href="compte.html">Mon Compte</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="panier.html" class="cart-btn">🛒 <span class="cart-count" id="cartCount">0</span></a>
+
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <span>✦ Récapitulatif ✦</span>
+      <h1>Mon Panier</h1>
+      <p>Vérifiez votre sélection avant de finaliser votre commande.</p>
+    </div>
+  </div>
+
+  <main class="panier-main">
+    <div class="panier-wrap">
+      <!-- CART ITEMS --
+      <div class="cart-items-col">
+        <div id="cartEmpty" class="cart-empty" style="display:none;">
+          <div class="empty-icon">🛒</div>
+          <h3>Votre panier est vide</h3>
+          <p>Découvrez nos délicieux gâteaux et commencez à personnaliser !</p>
+          <a href="personnaliser.html" class="btn-primary">Voir nos gâteaux</a>
+        </div>
+        <div id="cartItemsList"></div>
+      </div>
+
+      <!-- SUMMARY --
+      <div class="cart-summary-col">
+        <div class="cart-summary-card">
+          <h3>Résumé de la commande</h3>
+          <div class="summary-row" ><span>Sous-total</span><span id="subtotal">0 FCFA</span></div>
+          <div class="summary-divider"></div>
+          <div class="summary-row summary-total"><span>Total</span><span id="total">0 FCFA</span></div>
+         
+          <button class="btn-primary btn-checkout" id="checkoutBtn" onclick="allerCommander()">Commander maintenant ✓</button>
+          <a href="personnaliser.html" class="btn-outline btn-continue">← Continuer mes achats</a>
+        </div>
+        <div class="guarantee-badges">
+          <div class="guarantee-item">🔒 Paiement sécurisé</div>
+          <div class="guarantee-item">🚀 Livraison 24h</div>
+          <div class="guarantee-item">✅ Satisfaction garantie</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand"><span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span><h3>Mes Délices</h3><p>Pâtisserie artisanale depuis 1998.</p></div>
+      <div class="footer-links"><h4>Navigation</h4><ul><li><a href="index.html">Accueil</a></li><li><a href="personnaliser.html">Personnaliser</a></li><li><a href="commande.html">Commander</a></li>
+      <li><a href="panier.html">Panier</a></li></ul></div>
+      <div class="footer-contact">
+        <h4>Contactez-nous</h4>
+              <p>📍 Grand-Bassam</p>
+       <a href=""><p>📞 +225 05 56 83 07 17</p></a> 
+        <p>✉️ adresse@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>© 2026 Mes Délices. Tous droits réservés.</p></div>
+  </footer>
+
+  <div class="toast" id="toast"></div>
+  <script src="js/demo-engine.js"></script>
+  <script src="js/global.js"></script>
+  <script src="js/panier.js"></script>
+
+    <script src="js/panier.js"></script>
+  
+</body>
+</html>
+-->

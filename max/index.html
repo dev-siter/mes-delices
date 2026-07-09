@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mes Délices — Pâtisserie Artisanale</title>
+  <link rel="icon" type="image/svg+xml" href="logo.svg"/>
+  <link rel="stylesheet" href="css/global.css"/>
+  <link rel="stylesheet" href="css/index.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span>
+      <span class="logo-text">Mes Délices</span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Accueil</a>
+      </li>
+      <li><a href="personnaliser.html">Choisir votre Gâteau</a></li>
+      <li><a href="commande.html">Passer une Commande</a>
+      </li>
+    </ul>
+    <div class="nav-actions">
+      <a href="panier.html" class="cart-btn">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </a>
+    
+    </div>
+    <button class="burger" id="burger">☰</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-img-wrap">
+        <img src="images/PHOTO.jpg" alt="Boulangerie" width="500" height="500" class="hero-img" onerror="this.style.display='none'"/>
+        <div class="hero-overlay"></div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">✦ Artisanat & Passion ✦</p>
+      <h1 class="hero-title">Bienvenue chez<br/><em>Mes Délices</em></h1>
+      <p class="hero-sub">Chaque gâteau est une œuvre d'art façonnée avec amour,<br/>des ingrédients frais et un savoir-faire artisanal transmis de génération en génération.</p>
+      <div class="hero-btns">
+        <a href="personnaliser.html" class="btn-primary">Personnaliser mon gâteau</a>
+        <a href="commande.html" class="btn-secondary">Passer commande</a>
+      </div>
+    </div>
+    <!-- Particules pétales -->
+    <div class="hero-particles" id="heroPetals"></div>
+    <div class="hero-scroll">
+      <span>Découvrir</span>
+      <div class="scroll-arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- FEATURES BAND -->
+  <section class="features-band">
+    <div class="feature-item">
+      <span class="feat-icon"></span>
+      <h3>Ingrédients Frais</h3>
+      <p>Sélectionnés chaque matin auprès de producteurs locaux</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon"></span>
+      <h3>Chefs Experts</h3>
+      <p>4 pâtissiers passionnés à votre service</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon"></span>
+      <h3>Sur Mesure</h3>
+      <p>Personnalisez chaque détail de votre gâteau</p>
+    </div>
+    <div class="feature-item">
+      <span class="feat-icon"></span>
+      <h3>Livraison Rapide</h3>
+      <p>Livré frais dans les 24h</p>
+    </div>
+  </section>
+
+  <!-- BEST SELLERS -->
+  <section class="bestsellers">
+    <div class="section-header">
+      <span class="section-tag">Nos Spécialités</span>
+      <h2>Les Incontournables</h2>
+      <p>Des créations qui font battre les cœurs et fondre les papilles</p>
+    </div>
+    <div class="cakes-grid">
+      <div class="cake-card" onclick="window.location='personnaliser.html'">
+        <div class="cake-img-wrap">
+          <img src="images/1 Foret chocolat.jpg" alt="Forêt chocolat" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+        </div>
+        <div class="cake-info">
+          <h3>Forêt chocolat</h3>
+          <p>Chocolat, cerises, chantilly</p>
+          <span class="price">À partir de 18 500 FCFA</span>
+        </div>
+      </div>
+      <div class="cake-card" onclick="window.location='personnaliser.html'">
+        <div class="cake-img-wrap">
+          <img src="images/2 Fraisier aux Fraises.jpg" alt="Fraisier aux Fraises" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+        </div>
+        <div class="cake-info">
+          <h3>Fraisier aux Fraises</h3>
+          <p>Fraises fraîches, crème mousseline</p>
+          <span class="price">À partir de 21 000 FCFA</span>
+        </div>
+      </div>
+      <div class="cake-card" onclick="window.location='personnaliser.html'">
+        <div class="cake-img-wrap">
+          <img src="images/3 Opera Dore.jpg" alt="Opéra Doré" onerror="this.parentElement.classList.add('no-img')"/>
+          <div class="img-placeholder"></div>
+        </div>
+        <div class="cake-info">
+          <h3>Opéra Doré</h3>
+          <p>Café, chocolat, biscuit joconde</p>
+          <span class="price">À partir de 24 000 FCFA</span>
+        </div>
+      </div>
+    </div>
+    <div class="see-all-wrap">
+      <a href="personnaliser.html" class="btn-outline">Voir tous nos gâteaux →</a>
+    </div>
+  </section>
+
+  <!-- QUOTE BANNER -->
+  <section class="quote-banner">
+    <div class="quote-inner">
+      <span class="quote-mark">"</span>
+      <p>Un gâteau n'est pas seulement un dessert,<br/>c'est le goût d'un souvenir qui dure toute une vie.</p>
+      <cite>— Marie-Claire, Fondatrice</cite>
+    </div>
+  </section>
+
+  <!-- REVIEWS TEASER -->
+  <section class="reviews-teaser">
+    <div class="section-header">
+      <span class="section-tag">Ce qu'ils disent</span>
+      <h2>Nos Clients Adorent</h2>
+    </div>
+    <div class="reviews-strip">
+      <div class="review-mini">
+        <div class="reviewer-avatar">
+          <img src="images/clients/client1.jpg" alt="Amina" onerror="this.style.display='none'"/>
+          <span class="avatar-fallback">A</span>
+        </div>
+        <div class="review-mini-text">
+          <div class="stars">★★★★★</div>
+          <p>"Le meilleur gâteau d'anniversaire que j'aie jamais goûté !"</p>
+          <strong>— Amina K.</strong>
+        </div>
+      </div>
+      <div class="review-mini">
+        <div class="reviewer-avatar">
+          <img src="images/clients/client2.jpg" alt="Jean-Paul" onerror="this.style.display='none'"/>
+          <span class="avatar-fallback">J</span>
+        </div>
+        <div class="review-mini-text">
+          <div class="stars">★★★★★</div>
+          <p>"Service impeccable, gâteau livré à l'heure et délicieux !"</p>
+          <strong>— Jean-Paul M.</strong>
+        </div>
+      </div>
+      <div class="review-mini">
+        <div class="reviewer-avatar">
+          <img src="images/clients/client3.jpg" alt="Sophie" onerror="this.style.display='none'"/>
+          <span class="avatar-fallback">S</span>
+        </div>
+        <div class="review-mini-text">
+          <div class="stars">★★★★★</div>
+          <p>"Personnalisation parfaite pour mon mariage. Merci infiniment !"</p>
+          <strong>— Sophie L.</strong>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <span>Fondant Volcanique &nbsp;✦&nbsp;</span>
+    <span>Fraisier aux Fraises &nbsp;✦&nbsp;</span>
+    <span>Tarte Acidulée &nbsp;✦&nbsp;</span>
+    <span>Opéra Doré &nbsp;✦&nbsp;</span>
+    <span>Forêt Chocolat &nbsp;✦&nbsp;</span>
+    <span>Tropicana Passion &nbsp;✦&nbsp;</span>
+    <span>Millefeuille Bourbon &nbsp;✦&nbsp;</span>
+    <span>Trianon Pralinée &nbsp;✦&nbsp;</span>
+    <span>Moelleux Baobab &nbsp;✦&nbsp;</span>
+    <span>Charlotte Royale &nbsp;✦&nbsp;</span>
+    <span>Fondant Volcanique &nbsp;✦&nbsp;</span>
+    <span>Fraisier aux Fraises &nbsp;✦&nbsp;</span>
+    <span>Tarte Acidulée &nbsp;✦&nbsp;</span>
+    <span>Opéra Doré &nbsp;✦&nbsp;</span>
+    <span>Forêt Chocolat &nbsp;✦&nbsp;</span>
+    <span>Tropicana Passion &nbsp;✦&nbsp;</span>
+    <span>Millefeuille Bourbon &nbsp;✦&nbsp;</span>
+    <span>Trianon Pralinée &nbsp;✦&nbsp;</span>
+    <span>Moelleux Baobab &nbsp;✦&nbsp;</span>
+    <span>Charlotte Royale &nbsp;✦&nbsp;</span>
+  </div>
+</div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-icon"><svg style="width:38px;height:38px;" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" fill="#FFF0F3" stroke="#D4547A" stroke-width="1.5"/><path d="M10 24 Q19 12 28 24" stroke="#D4547A" stroke-width="2" fill="none" stroke-linecap="round"/><ellipse cx="19" cy="25" rx="9" ry="4" fill="#D4547A" opacity="0.25"/><circle cx="14" cy="21" r="1.5" fill="#D4547A"/><circle cx="19" cy="18" r="1.5" fill="#9B2F52"/><circle cx="24" cy="21" r="1.5" fill="#D4547A"/></svg></span>
+        <h3>Mes Délices</h3>
+        <p>Pâtisserie artisanale depuis 1998.<br/>Chaque gâteau, une histoire.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Navigation</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="personnaliser.html">Choisir un Gâteau</a>
+          </li>
+          <li><a href="commande.html">Commander</a>
+          </li>
+          <li><a href="avis.html">Avis Clients</a></li>
+        </ul>
+      </div>
+      <div class="footer-contact">
+        <h4>Contactez-nous</h4>
+              <p>📍 Grand-Bassam</p>
+       <a href="https://wa.me/2250556830717">📞<span> +225 05 56 83 07 17</a> </span>
+       <a href="mailto: aurmcpe@gmail.com">✉️ <span>Adresse Mail</span></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Mes Délices. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+  <script src="js/demo-engine.js"></script>
+  <script src="js/global.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
